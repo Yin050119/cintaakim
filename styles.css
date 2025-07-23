@@ -1,0 +1,261 @@
+/* Reset and Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: #141414;
+  color: #fff;
+  line-height: 1.6;
+  position: relative;
+  padding-bottom: 3rem;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+  border-radius: 8px;
+}
+
+/* Header */
+header {
+  background: url('gallery/photo16.jpg.JPEG') center 65% / cover no-repeat;
+  height: 50vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 2rem;
+  background-blend-mode: overlay;
+  background-color: rgba(0, 0, 0, 0.5);
+  text-align: center;
+  text-shadow: 0 0 10px #000;
+}
+
+header h1 {
+  font-size: 4rem;
+  font-weight: 700;
+  color: #e50914;
+}
+
+header p {
+  font-size: 1.5rem;
+  font-weight: 300;
+  margin-top: 1rem;
+}
+
+/* Main Layout */
+main {
+  padding: 2rem;
+}
+
+/* Gallery */
+.gallery {
+  margin-top: 2rem;
+}
+
+.gallery h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #e50914;
+}
+
+.photo-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 1rem;
+}
+
+.photo-container img {
+  width: 100%;
+  height: 270px;
+  object-fit: cover;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.7);
+  transition: transform 0.3s ease;
+}
+
+.photo-container img:hover {
+  transform: scale(1.08);
+}
+
+/* Message Section */
+.message {
+  margin-top: 3rem;
+  background-color: #222;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.05);
+}
+
+.message h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #e50914;
+}
+
+.message p {
+  font-size: 1.2rem;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 1rem;
+  background-color: #111;
+  color: #888;
+  font-size: 0.9rem;
+  margin-top: 2rem;
+}
+
+/* Lightbox Styles */
+.lightbox {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.85);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+  padding: 1rem;
+  overflow: auto;
+}
+
+.lightbox.show {
+  display: flex;
+}
+
+/* UPDATED: Horizontal layout for image + description */
+.lightbox-content {
+  display: flex;
+  gap: 2rem;
+  max-width: 1000px;
+  width: 100%;
+  animation: fadeIn 0.4s ease-in-out;
+  align-items: center;
+}
+
+/* Image section */
+.lightbox-img {
+  max-width: 50%;
+  height: auto;
+  object-fit: contain;
+  border-radius: 12px;
+  box-shadow: 0 0 25px rgba(0,0,0,0.6);
+}
+
+/* Description section */
+.lightbox-description {
+  flex: 1;
+  color: #ddd;
+  text-align: left;
+}
+
+.lightbox-description h2 {
+  font-size: 1.8rem;
+  color: #e50914;
+  margin-bottom: 0.5rem;
+}
+
+.lightbox-description p {
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+}
+
+.lightbox-description .see-more {
+  margin-top: 1rem;
+  background-color: #e50914;
+  color: white;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background 0.3s ease;
+}
+
+.lightbox-description .see-more:hover {
+  background-color: #ff2e2e;
+}
+
+/* Close Button */
+.close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 3rem;
+  color: #fff;
+  cursor: pointer;
+  z-index: 1000;
+  transition: color 0.3s;
+}
+
+.close:hover {
+  color: #e50914;
+}
+
+/* Music Button */
+#music-toggle {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #e50914;
+  color: white;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 25px;
+  font-size: 1rem;
+  cursor: pointer;
+  z-index: 1001;
+  box-shadow: 0 0 10px rgba(0,0,0,0.4);
+  transition: background 0.3s ease;
+}
+
+#music-toggle:hover {
+  background-color: #ff2e2e;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  header h1 {
+    font-size: 2.5rem;
+  }
+
+  header p {
+    font-size: 1.2rem;
+  }
+
+  .photo-container {
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  }
+
+  .photo-container img {
+    height: 200px;
+  }
+
+  /* Stack image and text on small screens */
+  .lightbox-content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .lightbox-img {
+    max-width: 90%;
+  }
+
+  .lightbox-description {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
